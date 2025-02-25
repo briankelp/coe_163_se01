@@ -1,5 +1,4 @@
 use criterion::{
-    black_box,
     criterion_group, 
     criterion_main, 
     Criterion};
@@ -23,8 +22,9 @@ pub fn find_min_combi(n: i32, lock_1: &str, lock_2: &str) -> usize {
 }
 
 pub fn sorting_benchmark(c: &mut Criterion) {
-    c.bench_function("Min Combi", |b| b.iter(|| find_min_combi((100), ("0408508214408693401443322277782286096051410454577137791407339268821842297598596429618918019769521388"), 
-    ("5747993954668983025628583105482716255958863659698708329400634030065794924167009144046862895933022878"))));
+    c.bench_function("Min Combi", |b| b.iter(||  find_min_combi(50,
+        "15292304008095093550618514054452538304493692938923", 
+        "23986022971705733498711898030829527051135426763781")));
 }
 
 criterion_group!(benches, sorting_benchmark);
